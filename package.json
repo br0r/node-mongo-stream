@@ -1,0 +1,16 @@
+{
+  "name": "node-mongo-stream",
+  "version": "1.0.0",
+  "description": "Binary for performing mongodb stream request from shell",
+  "bin": {
+    "nmongo": "bin/nmongo.js"
+  },
+  "engines": {
+    "node": ">=6.0.0"
+  },
+  "author": "Viktor Silfverström <viktor@silfverstrom.com>",
+  "license": "MIT",
+  "dependencies": {
+    "mongodb": "^2.2.26"
+  }
+}
