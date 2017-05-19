@@ -64,7 +64,11 @@ var parseQuery = function (str) {
     // Plus enclosing parentheses
     str = str.substr(t.length + 2);
     try {
-      methods[key] = JSON.parse(t);
+      if (t === '') {
+        methods[key] = {};
+      } else {
+        methods[key] = JSON.parse(t);
+      }
     } catch (e) {
       console.warn('Couldn\'t parse query for ' + key + ', ignoring');
     }
