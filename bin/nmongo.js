@@ -4,14 +4,14 @@ var { MongoClient } = require('mongodb');
 var Transform = require('stream').Transform;
 
 function exit(msg, db) {
-  console.error(msg);
+  if (msg) console.error(msg);
   if (db) {
     return db.close(function () {
-      process.exit(1);
+      process.exit(msg ? 1 : 0);
     });
   }
 
-  process.exit(1);
+  process.exit(msg ? 1 : 0);
 }
 
 if (process.argv.length <= 3) {
@@ -78,6 +78,7 @@ var parseQuery = function (str) {
 };
 
 MongoClient.connect(url, function (err, db) {
+  process.on('exit', () => exit(null, db));
   if (err) exit('Could not connect ' + err);
   var m = query.match(/^db\.([^.]+)(.+)$/);
 
