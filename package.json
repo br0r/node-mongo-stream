@@ -1,6 +1,6 @@
 {
   "name": "node-mongo-stream",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Binary for performing mongodb stream request from shell",
   "bin": {
     "nmongo": "bin/nmongo.js"
